@@ -11,7 +11,6 @@ session = Session()
 
 paises = session.query(Pais).all()
 
-print("Presentación de todos los paises del continente americano")
-paises = session.query(Pais).filter(or_(Pais.continente=="NA", Pais.continente=="SA")).all()
-print("\n",paises)
-
+print("Presentación de todos los paises de Asia ordenados por el dial")
+paises = session.query(Pais).filter(Pais.continente=="AS").order_by(Pais.dial).all()
+print(paises)

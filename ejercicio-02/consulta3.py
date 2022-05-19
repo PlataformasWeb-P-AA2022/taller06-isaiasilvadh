@@ -8,10 +8,9 @@ engine = create_engine('sqlite:///paises.db')
 
 Session = sessionmaker(bind=engine)
 session = Session()
-
+ 
 paises = session.query(Pais).all()
 
-print("Presentación de todos los paises del continente americano")
-paises = session.query(Pais).filter(or_(Pais.continente=="NA", Pais.continente=="SA")).all()
-print("\n",paises)
-
+print("Presentación de los lenguajes de cada pais")
+paises = session.query(Pais.nombre, Pais.lenguajes).all()
+print(paises)
